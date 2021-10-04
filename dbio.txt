@@ -1,0 +1,40 @@
+//// -- LEVEL 1
+//// -- Tables and References
+
+// Creating tables
+Table calendar{
+date date [pk]
+wm_yr_wk int
+weekday int
+wday int
+month int
+year int
+d int
+event_name_1 varchar
+event_type_1 varchar
+event_name_2 varchar
+event_type_2 varchar
+snap_CA bool
+snap_TX bool
+snap_WI bool
+}
+
+Table sell_prices {
+store_id varchar [pk]
+item_id varchar [pk]
+wm_yr_wk int [pk]
+sell_price float
+}
+
+Table sales_train {
+id varchar [pk]
+item_id varchar
+dept_id varchar
+cat_id varchar
+store_id varchar
+state_id varchar
+d int [note: 'In original dataset, multiple entries d_1-d_1941']
+}
+
+Ref: sales_train.d < calendar.d
+Ref: sales_train.(item_id,store_id) - sell_prices.(item_id,store_id)

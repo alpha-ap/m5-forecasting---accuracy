@@ -1,0 +1,6 @@
+title Walmart sales prediction
+
+End user->Streamlit app: Enters input ID to get predictions
+note right of Streamlit app: Checks whether input ID entered is correct
+Streamlit app->End user: Predictions for 28 days if input is valid
+Streamlit app->End user: Displaying Error message and asking to enter valid input
